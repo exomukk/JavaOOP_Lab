@@ -4,6 +4,7 @@ import java.util.HashMap;
 public class Calendar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+//      Tạo hash map (months) để lưu trữ các tháng trong năm dưới dạng chuỗi và số tương ứng
         HashMap<String, Integer> months = new HashMap<>();
         months.put("january", 1);
         months.put("jan.", 1);
@@ -64,6 +65,7 @@ public class Calendar {
         months.put("12", 12);
 
         while (true) {
+//        	Người dùng nhập vào tháng, nếu nhập sai (không có trong hash map) thì nhập lại
             System.out.println("Enter month: ");
             String monthInput = scanner.nextLine().toLowerCase();
             if (!months.containsKey(monthInput)) {
@@ -72,6 +74,7 @@ public class Calendar {
             }
             int month = months.get(monthInput);
 
+//          Tương tự như tháng, nhập năm -> In ra kết quả
             System.out.println("Enter year: ");
             String yearInput = scanner.nextLine();
             if (!yearInput.matches("\\d+") || yearInput.length() != 4) {
@@ -86,6 +89,7 @@ public class Calendar {
         }
     }
 
+//  Hàm trả về số ngày trong 1 tháng cụ thể của 1 năm cụ thể, xử lý trường hợp tháng 2 trong năm nhuận và không nhuận
     public static int getDaysOfMonth(int month, int year) {
         if (month == 2) {
             if (isLeapYear(year)) {
@@ -100,6 +104,7 @@ public class Calendar {
         }
     }
 
+//  Kiểm tra năm nhuận
     public static boolean isLeapYear(int year) {
         if (year % 4 != 0) {
             return false;
