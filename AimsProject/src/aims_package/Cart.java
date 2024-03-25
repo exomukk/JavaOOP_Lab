@@ -8,7 +8,7 @@ public class Cart {
 		if (qtyOrdered < MAX_NUMBERS_ORDERED) {
 			itemsOrdered[qtyOrdered] = disc;
 			qtyOrdered++;
-			System.out.println("The disc has been added.");
+			System.out.println("The disc " + disc.getTitle() + " has been added.");
 		} else {
 			System.out.println("The cart is almost full.");
 		}
@@ -19,7 +19,7 @@ public class Cart {
 			if (itemsOrdered[i].equals(disc)) {
 				System.arraycopy(itemsOrdered, i + 1, itemsOrdered, i, qtyOrdered - i - 1);
 				qtyOrdered--;
-				System.out.println("The disc has been removed.");
+				System.out.println("The disc " + disc.getTitle() + " has been removed.");
 				return;
 			}
 		}
@@ -31,6 +31,7 @@ public class Cart {
 		for (int i = 0; i < qtyOrdered; i++) {
 			total += itemsOrdered[i].getCost();
 		}
+		total = Math.round(total * 100.0f) / 100.0f;
 		return total;
 	}
 }
