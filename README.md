@@ -1,1 +1,0 @@
-Các file `answers.txt` của các buổi Lab được đặt trong ".\src\answers.txt"
