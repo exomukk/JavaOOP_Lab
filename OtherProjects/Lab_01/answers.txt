@@ -1,0 +1,36 @@
+6.1: 
+- What happens if users choose "Cancel" ?
++ If the user choose "Cancel", the "option" variable will be set to "JOptionPane.CANCEL_OPTION", but since we don't have codes to check for this value, the "JOptionPane.YES_OPTION" will return "false" -> so the "No" string will be in the output (You have chosen: No).
+
+- How to customize the options to users, e.g. only two options: "Yes" and "No", OR "I do" and "I don’t" ?
++ First we create an array "Object[] option = {"Yes/I do", "No/I don't"}" to store the options so the user have 2 options to choose. Then we change from "showConfirmDialog" to "showOptionDialog", it will takes those options and display them in the dialog. After that we fix the syntax, the user choice still be capture in "option" variable. The options start from 0 in the array, as "yes/i do" correspond to 0, and "no/i don't" correspond to 1, if there are more than 2 options, we can adjust this.
++ The code after customize will looks like this:
+`import javax.swing.JOptionPane;
+
+public class ChoosingOption {
+	public static void main(String[] args) {
+		Object[] options = {"Yes/I do", "No/I don't"};
+		int option = JOptionPane.showOptionDialog(
+			// passing this null so the dialog box will be displayed in the center of screen
+			null, 
+
+			// adding title and message
+			"Do you want to change to the first class ticket ?", 
+			"Ticket Upgrade", 
+
+			// display the yes/no question and the message 
+			JOptionPane.YES_NO_OPTION, 
+			JOptionPane.QUESTION_MESSAGE, 
+
+			// null = no icon for the dialog
+			null, 
+
+			// options is the array that contains the options for the user to choose
+			options, 
+
+			// this is the initial value that is selected when the dialog is displayed
+			options[0]);
+		JOptionPane.showMessageDialog(null, "You have chosen: " + (option==JOptionPane.YES_OPTION?"Yes/I do":"No/I don't"));
+		System.exit(0);
+	}
+}`
