@@ -1,8 +1,11 @@
-package aims_package;
+package hust.soict.cybersec.aims;
+
+import hust.soict.cybersec.aims.cart.Cart;
+import hust.soict.cybersec.aims.disc.DigitalVideoDisc;
 
 public class Aims{
 	public static void main(String[] args) {
-		Cart anOrder = new Cart();
+		Cart cart = new Cart();
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc(
 				"The Lion King", 
@@ -28,14 +31,13 @@ public class Aims{
 				18.99f
 		);
 				
-		anOrder.addDigitalVideoDisc(dvd3);
-		anOrder.addDigitalVideoDisc(dvd1);
-		anOrder.addDigitalVideoDisc(dvd2);
+		cart.addDigitalVideoDisc(dvd3);
+		cart.addDigitalVideoDisc(dvd1);
+		cart.addDigitalVideoDisc(dvd2);
 		
-		anOrder.removeDigitalVideoDisc(dvd1);
+		cart.removeDigitalVideoDisc(dvd1);
 		
-		System.out.println("Total cost is: ");
-		System.out.println(anOrder.totalCost());
+		cart.printCart();
 		
 		System.exit(0);
 	}

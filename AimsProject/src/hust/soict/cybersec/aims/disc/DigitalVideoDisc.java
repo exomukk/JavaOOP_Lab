@@ -1,4 +1,4 @@
-package aims_package;
+package hust.soict.cybersec.aims.disc;
 
 public class DigitalVideoDisc {
 	private String title;
@@ -34,5 +34,16 @@ public class DigitalVideoDisc {
 	
 	public float getCost() {
 		return cost;
+	}
+	
+	// toString method for DigitalVideoDisc class
+	@Override
+	public String toString() {
+		return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
+	}
+	
+	// isMatch method for title matching
+	public boolean isMatch(String title) {
+		return this.title.equalsIgnoreCase(title);
 	}
 }
