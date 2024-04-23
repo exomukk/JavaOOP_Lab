@@ -1,13 +1,14 @@
 package hust.soict.cybersec.aims;
 
 import hust.soict.cybersec.aims.cart.Cart;
-import hust.soict.cybersec.aims.disc.DigitalVideoDisc;
+import hust.soict.cybersec.aims.media.DigitalVideoDisc;
 
 public class Aims{
 	public static void main(String[] args) {
 		Cart cart = new Cart();
 		
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc(
+				1,
 				"The Lion King", 
 				"Animation", 
 				"Roger Allers", 
@@ -16,6 +17,7 @@ public class Aims{
 		);
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc(
+				2,
 				"Star Wars",
 				"Science Fiction",
 				"George Lucas",
@@ -24,6 +26,7 @@ public class Aims{
 		);
 		
 		DigitalVideoDisc dvd3  = new DigitalVideoDisc(
+				3,
 				"Aladin",
 				"Animation",
 				"hieu",
@@ -31,11 +34,11 @@ public class Aims{
 				18.99f
 		);
 				
-		cart.addDigitalVideoDisc(dvd3);
-		cart.addDigitalVideoDisc(dvd1);
-		cart.addDigitalVideoDisc(dvd2);
+		cart.addMedia(dvd3);
+		cart.addMedia(dvd1);
+		cart.addMedia(dvd2);
 		
-		cart.removeDigitalVideoDisc(dvd1);
+		cart.removeMedia(dvd1);
 		
 		cart.printCart();
 		

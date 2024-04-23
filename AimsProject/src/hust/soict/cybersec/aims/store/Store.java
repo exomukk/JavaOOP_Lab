@@ -1,6 +1,5 @@
 package hust.soict.cybersec.aims.store;
-//import hust.soict.cybersec.aims.*;
-import hust.soict.cybersec.aims.disc.DigitalVideoDisc;
+import hust.soict.cybersec.aims.media.*;
 
 public class Store {
 	private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[100];
