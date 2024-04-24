@@ -29,5 +29,10 @@ public class Book extends Media {
 	public void setAuthhors(List<String> authhors) {
 		this.authors = authhors;
 	}
+	
+	@Override
+	public String toString() {
+		return "Book - " + getId() + " - " + getTitle() + " - " + getAuthhors() + " - " + getCategory() + ": " + getCost() + " $";
+	}
 
 }

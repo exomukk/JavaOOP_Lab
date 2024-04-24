@@ -30,4 +30,16 @@ public class Store {
 			System.out.println((i + 1) + ". " + itemsInStore.get(i).toString());
 		}
 	}
+	
+	/**Search for available Media inside the Store
+	@return true if Media is available in the Store, false otherwise
+	*/
+	public Media search(String title) {
+		for(Media item : itemsInStore) {
+			if(item.isMatch(title)) {
+				return item;
+			}
+		}
+		return null;
+		}
 }
