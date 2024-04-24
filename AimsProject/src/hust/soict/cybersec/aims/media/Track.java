@@ -16,6 +16,13 @@ public class Track implements Playable{
 	public int getLength() {
 		return length;
 	}
+	
+	public boolean equals(Track track) {
+		if(this.getTitle().equals(track.getTitle()) && this.getLength() == track.getLength()){
+			return true;
+		}
+		return false;
+	}
 
 	@Override
 	public void play() {
