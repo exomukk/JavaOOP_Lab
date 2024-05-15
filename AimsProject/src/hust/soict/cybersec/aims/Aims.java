@@ -143,7 +143,7 @@ public class Aims{
 						
 						break;
 					case 1: //view store
-						store.printMedia();
+						store.print();
 						level = "storeMenu";
 						
 						break;

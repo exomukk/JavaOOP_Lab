@@ -40,7 +40,7 @@ public class CartTest{
 		
 		cart.removeMedia(dvd1);
 		
-		cart.printCart();
+		cart.print();
 		
 		System.exit(0);
 	}

@@ -19,6 +19,6 @@ public class StoreTest {
         store.removeMedia(dvd1);
         
         // Print DVD
-        store.printMedia();
+        store.print();
 	}
 }
