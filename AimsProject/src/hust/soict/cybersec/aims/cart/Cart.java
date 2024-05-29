@@ -1,6 +1,10 @@
 package hust.soict.cybersec.aims.cart;
 
 import hust.soict.cybersec.aims.media.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+
 import java.util.*;
 
 class MediaComparatorByCostTitle implements Comparator<Media>{
@@ -34,7 +38,15 @@ class MediaComparatorByTitleCost implements Comparator<Media>{
 }
 
 public class Cart {
-	private List<Media> itemsOrdered = new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+	
+	public ObservableList<Media> getItemsOrdered() {
+		return itemsOrdered;
+	}
+	
+	public FilteredList<Media> getFilteredItems() {
+        return new FilteredList<>(itemsOrdered, p -> true);
+    }
 	
 	//second way to sort List
 	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
