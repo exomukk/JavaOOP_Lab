@@ -7,6 +7,8 @@ import javafx.collections.transformation.FilteredList;
 
 import java.util.*;
 
+import javax.naming.LimitExceededException;
+
 class MediaComparatorByCostTitle implements Comparator<Media>{
 	public int compare(Media media1, Media media2) {
 		float compare = media1.getCost() - media2.getCost();
@@ -51,14 +53,19 @@ public class Cart {
 	//second way to sort List
 	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
 	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
-	//
+	private static final int MAX_NUMBERS_ORDERED = 20;
 	
-	public boolean addMedia(Media media) {
-		if(itemsOrdered.contains(media)) {
-			System.out.println("\nYou already ordered " + media.getTitle() + "!");
-			return false;
+	public boolean addMedia(Media media) throws LimitExceededException {
+		if (itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
+			if(itemsOrdered.contains(media)) {
+				System.out.println("\nYou already ordered " + media.getTitle() + "!");
+				return false;
+			} else {
+				itemsOrdered.add(media);
+			}
+		} else {
+			throw new LimitExceededException("ERROR: The number of mnedia has reached its limit");
 		}
-		itemsOrdered.add(media);
 		System.out.println("\nSuccessfully ordered " + media.getTitle());
 		return true;
 	}

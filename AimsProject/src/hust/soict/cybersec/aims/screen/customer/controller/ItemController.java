@@ -1,7 +1,11 @@
 package hust.soict.cybersec.aims.screen.customer.controller;
 
 import javafx.geometry.Insets;
+
+import javax.naming.LimitExceededException;
+
 import hust.soict.cybersec.aims.cart.Cart;
+import hust.soict.cybersec.aims.exception.PlayerException;
 import hust.soict.cybersec.aims.media.Media;
 import hust.soict.cybersec.aims.media.Playable;
 import javafx.event.ActionEvent;
@@ -25,17 +29,24 @@ public class ItemController {
     private Label lblCost;
 
     @FXML
-    void btnAddToCartClicked(ActionEvent event) {
-
+    void btnAddToCartClicked(ActionEvent event) throws LimitExceededException {
+    	if (cart != null) {
+            cart.addMedia(media);
+        } else {
+            System.out.println("Cart is not initialized.");
+        }
     }
 
     @FXML
-    void btnPlayClicked(ActionEvent event) {
-
+    void btnPlayClicked(ActionEvent event) throws PlayerException {
+    	if (media instanceof Playable) {
+    		((Playable) media).play();
+    	}
     }
     
     private Media media;
     private Cart cart;
+    
     public void setData(Media media) {
     	this.media = media;
     	lblTitle.setText(media.getTitle());

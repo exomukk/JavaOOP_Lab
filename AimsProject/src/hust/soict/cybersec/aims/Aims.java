@@ -1,8 +1,12 @@
 package hust.soict.cybersec.aims;
 
 import java.util.*;
+
+import javax.naming.LimitExceededException;
+
 import java.io.*;
 import hust.soict.cybersec.aims.cart.Cart;
+import hust.soict.cybersec.aims.exception.PlayerException;
 import hust.soict.cybersec.aims.media.*;
 import hust.soict.cybersec.aims.store.*;
 
@@ -71,7 +75,7 @@ public class Aims{
 		System.out.println("Please choose a number 1-2");
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws LimitExceededException, PlayerException {
 		Store store = new Store();
 		Cart cart = new Cart();
 		Scanner keyboard = new Scanner(System.in);

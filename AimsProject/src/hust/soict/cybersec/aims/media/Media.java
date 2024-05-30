@@ -46,16 +46,34 @@ public abstract class Media {
 		this.cost = cost;
 	}
 	
-	// isMatch method for title matching
-	public boolean isMatch(String title) {
-		return this.getTitle().equalsIgnoreCase(title);
-	}
-	
-	public boolean equals(Media media) {
-		if(this.getTitle().equals(media.getTitle())) {
-			return true;
-		}
-		return false;
-	}
+	// equals method
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // Checks if both references point to the same object
+        if (obj == null || getClass() != obj.getClass()) return false; // Checks for null and class type
+
+        Media media = (Media) obj;
+
+        return Double.compare(media.cost, cost) == 0 && title.equalsIgnoreCase(media.title);
+    }
+
+    // compareTo method
+    public int compareTo(Media other) {
+        if (other == null) throw new NullPointerException("Comparing media with null");
+
+        // First compare by title
+        int titleComparison = this.title.compareToIgnoreCase(other.title);
+        if (titleComparison != 0) {
+            return titleComparison;
+        }
+
+        // If titles are the same, compare by cost
+        return Double.compare(this.cost, other.cost);
+    }
+
+    // isMatch method
+    public boolean isMatch(String title) {
+        return this.title.equalsIgnoreCase(title);
+    }
 
 }

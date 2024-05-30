@@ -3,6 +3,7 @@ package hust.soict.cybersec.aims.screen.customer.controller;
 import java.io.IOException;
 
 import hust.soict.cybersec.aims.cart.Cart;
+import hust.soict.cybersec.aims.media.Media;
 import hust.soict.cybersec.aims.store.Store;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -66,6 +68,7 @@ public class ViewStoreController {
     
     private Store store;
     private Cart cart;
+    
     public ViewStoreController(Store store, Cart cart) {
     	this.store = store;
     	this.cart = cart;
